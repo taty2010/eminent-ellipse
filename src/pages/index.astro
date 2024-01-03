@@ -3,19 +3,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-let MyBlob: any = null;
-
-async function importComponent(shouldImport){
-	if(shouldImport){
-		const module = await import('../components/blobTest.jsx')
-		MyBlob = module.default
-	}
-}
-
-(async () => {
-	await importComponent(true)
-	console.log("HELLOOOOOO", MyBlob)
-})()
 ---
 
 
@@ -28,7 +15,6 @@ async function importComponent(shouldImport){
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
-			{MyBlob && <MyBlob test={"Hello"} value={"World"}/>}
 			<h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>
 				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
